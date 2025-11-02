@@ -44,7 +44,8 @@ public class SecurityConfig {
                 "https://ashraf-portfolio-indol.vercel.app",
                 "https://ashraf-portfolio-pi.vercel.app",
                 "http://localhost:5173",
-                "http://localhost:8080"
+                "http://localhost:8080",
+                "https://www.idata.center"
         ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
