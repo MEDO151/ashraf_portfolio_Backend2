@@ -28,38 +28,30 @@ public class EmailService {
             String subject;
             String body;
 
+            // اسم للعرض لو المستخدم ما دخلش اسمه
+            String displayName = (userName == null || userName.trim().isEmpty())
+                    ? ("en".equalsIgnoreCase(lang) ? "Customer" : "عميل")
+                    : userName;
+
             if ("en".equalsIgnoreCase(lang)) {
                 subject = "Your message has been received";
                 body = String.format(
                         "Hello %s,\n\n" +
-                                "I hope you are doing well.\n\n" +
-                                "I would like to inform you that I have received your message and I truly appreciate you taking the time to reach out. " +
-                                "I will personally review the details you shared and get back to you as soon as possible with a clear and helpful response. " +
-                                "Your message is important to me, and I will make sure to follow up with the attention it deserves.\n\n" +
-                                "If you have any additional details or documents that might help me better understand your inquiry, " +
-                                "please feel free to reply directly to this email.\n\n" +
-                                "Thank you once again for getting in touch.\n\n" +
-                                "Best regards,\n" +
-                                "Ashraf Al-Muhtaseb",
-                        userName
+                                "Thank you for your message. I’ve received it and will review the details carefully before responding as soon as possible.\n\n" +
+                                "Warm regards,\n\n" +
+                                "Ashraf Almuhtaseb",
+                        displayName
                 );
             } else {
                 subject = "تم استلام رسالتك بنجاح";
                 body = String.format(
                         "مرحبًا %s،\n\n" +
-                                "أتمنى أن تكون بخير.\n\n" +
-                                "أود أن أبلغك بأنني استلمت رسالتك وأقدر لك وقتك وجهدك في التواصل. " +
-                                "سأقوم بمراجعة التفاصيل التي أرسلتها بعناية، وسأتواصل معك قريبًا بإجابة واضحة ومفيدة. " +
-                                "رسالتك محل اهتمامي، وسأتابعها شخصيًا لضمان حصولك على الرد المناسب في أقرب وقت ممكن.\n\n" +
-                                "إذا كانت لديك أي تفاصيل أو مرفقات إضافية قد تساعدني في فهم استفسارك بشكل أفضل، " +
-                                "فلا تتردد في الرد على هذا البريد مباشرة.\n\n" +
-                                "شكرًا لتواصلك،\n\n" +
-                                "خالص تحياتي،\n" +
+                                "شكرًا لتواصلك. تم استلام رسالتك، وسأقوم بمراجعتها بعناية والرد عليك في أقرب وقت ممكن.\n\n" +
+                                "أطيب الأمنيات،\n\n" +
                                 "أشرف المحتسب",
-                        userName
+                        displayName
                 );
             }
-
 
             helper.setSubject(subject);
             helper.setText(body, false);
