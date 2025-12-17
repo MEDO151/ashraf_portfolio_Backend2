@@ -21,6 +21,7 @@ public class ConfigClass {
 
     @Bean
     public JavaMailSender javaMailSender() {
+
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost("idata.center");
         mailSender.setPort(465);
